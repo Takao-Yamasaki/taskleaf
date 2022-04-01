@@ -1,10 +1,10 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.all
+    @tasks = currnet_user.tasks
   end
 
   def show
-    @task = Task.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
   end
 
   def new
@@ -28,7 +28,8 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(task_params)
+    # ログインしているユーザーのTaskデータの登録
+    @task = current_user.tasks.new(task_params)
 
     if @task.save
       redirect_to tasks_url, notice: "タスク「#{@task.name}」を登録しました。"
