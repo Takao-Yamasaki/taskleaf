@@ -67,4 +67,6 @@ gem 'slim-rails'
 gem 'html2slim'
 # アプリケーションの見栄えをよくする
 gem 'bootstrap'
+# URLをリンクとして表示する
+gem 'rails_autolink'
 
