@@ -77,4 +77,5 @@ gem 'rails_autolink'
 gem 'ransack'
 # ページネーション機能の追加
 gem 'kaminari'
-
+# 非同期処理を行う
+gem 'sidekiq','~> 5.0'
