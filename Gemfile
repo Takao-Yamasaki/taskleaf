@@ -75,4 +75,6 @@ gem 'bootstrap'
 gem 'rails_autolink'
 # 検索機能の追加
 gem 'ransack'
+# ページネーション機能の追加
+gem 'kaminari'
 

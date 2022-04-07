@@ -1,4 +1,5 @@
 class Task < ApplicationRecord
+  paginates_per 50
   # CSVデータをインポートする
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
