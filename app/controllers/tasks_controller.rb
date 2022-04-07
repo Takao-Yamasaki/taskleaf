@@ -3,6 +3,13 @@ class TasksController < ApplicationController
   def index
     @q = current_user.tasks.ransack(params[:q])
     @tasks = @q.result(distinct: true)
+
+    respond_to do |format|
+      # HTMLとしてアクセスされた場合
+      format.html
+      # CSVとしてアクセスされた場合
+      format.csv { send_data @tasks.generate_csv, filename: "tasks-#{Time.zone.now.strftime('%Y%m%d%S')}.csv" }
+    end
     # @tasks = current_user.tasks.recent
     # @tasks = currnet_user.tasks.order(created_at: :desc)
   end

@@ -1,4 +1,21 @@
 class Task < ApplicationRecord
+  # CSVデータをどの属性をどの順番でどの出力するか設定
+  def self.csv_attributes
+    ["name", "description", "created_at", "updated_at"]
+  end
+
+  # CSV出力
+  def self.generate_csv
+    CSV.generate(headers: true) do |csv|
+      # ヘッダを出力
+      csv << csv_attributes
+      # allメソッドで全タスクを取得
+      all.each do |task|
+        csv << csv_attributes.map{ |attr| task.send(attr) }
+      end
+    end
+  end
+
   has_one_attached :image
 
   def self.ransackable_attributes(auth_abject = nil)
