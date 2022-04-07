@@ -73,7 +73,6 @@ gem 'html2slim'
 gem 'bootstrap'
 # URLをリンクとして表示する
 gem 'rails_autolink'
-
 # 検索機能の追加
 gem 'ransack'
 

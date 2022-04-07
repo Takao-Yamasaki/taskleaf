@@ -53,7 +53,7 @@ class TasksController < ApplicationController
   
   def task_params
     # nameとdescriptionを抜き取る
-    params.require(:task).permit(:name, :description)
+    params.require(:task).permit(:name, :description, :image)
   end
   
   def set_task

@@ -1,4 +1,6 @@
 class Task < ApplicationRecord
+  has_one_attached :image
+
   def self.ransackable_attributes(auth_abject = nil)
     %w[name created_at]
   end
