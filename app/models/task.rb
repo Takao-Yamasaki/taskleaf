@@ -1,4 +1,12 @@
 class Task < ApplicationRecord
+  # CSVデータをインポートする
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+      task = new
+      task.attributes = row.to_hash.slice(*csv_attributes)
+      task.save!
+    end
+  end
   # CSVデータをどの属性をどの順番でどの出力するか設定
   def self.csv_attributes
     ["name", "description", "created_at", "updated_at"]
