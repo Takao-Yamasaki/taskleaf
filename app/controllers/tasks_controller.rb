@@ -31,7 +31,9 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    redirect_to tasks_url, notice: "タスク「#{@task.name}」を削除しました。"
+    # レスポンスボディなしでHTTPステータスとして204(成功)が返る
+    head :no_content
+    # redirect_to tasks_url, notice: "タスク「#{@task.name}」を削除しました。"
   end
 
   def create
