@@ -79,3 +79,5 @@ gem 'ransack'
 gem 'kaminari'
 # 非同期処理を行う
 gem 'sidekiq','~> 5.0'
+# RailsでWebpackを使ってJavaScriptを管理してくれる
+gem 'webpacker'
